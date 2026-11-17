@@ -342,61 +342,106 @@ main,
 }
 
 
+
 /* ==========================================================================
    06. HERO
-   Grupo centrado: texto (até 46rem) + fotografia (16rem), com gap curto.
+   Apresentação em duas colunas: conteúdo + fotografia.
    ========================================================================== */
+
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 46rem) 16rem;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr) clamp(15rem, 24vw, 21rem);
+  align-items: start;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+
+  /* Aproxima o conjunto do centro sem espremer o conteúdo */
+  max-width: 72rem;
+  margin-inline: auto;
+
+  min-height: min(48rem, calc(100svh - 5.5rem));
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+
   background-image: radial-gradient(
-    ellipse 50% 60% at 66% 50%,
+    ellipse 45% 60% at 80% 45%,
     rgba(197, 214, 106, 0.09),
     transparent 72%
   );
-  min-height: calc(100vh - 5.5rem);
-  min-height: min(48rem, calc(100svh - 5.5rem));
-  padding-block: clamp(2rem, 4vw, 4rem);
 }
 
 .hero-content {
   min-width: 0;
   width: 100%;
+  max-width: 54rem;
 }
 
+/* Identificação do portfólio */
+
 .breadcrumb {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
-  color: var(--muted);
+  gap: 0.85rem;
+
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 0.8rem 1rem;
+
+  border: 1px solid var(--line-strong);
+  border-left: 2px solid var(--accent);
+
+  background: rgba(30, 32, 37, 0.65);
+  color: var(--text);
+
   font-family: var(--font-mono);
-  font-size: var(--fs-mono);
-  letter-spacing: 0.04em;
+  font-size: clamp(0.72rem, 0.68rem + 0.15vw, 0.82rem);
+  font-weight: 500;
+  letter-spacing: 0.075em;
+}
+
+.breadcrumb-index {
+  color: var(--accent);
+  font-size: 0.8em;
+}
+
+.breadcrumb-label {
+  white-space: nowrap;
 }
 
 .cursor {
   display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
+  flex-shrink: 0;
+  width: 0.45rem;
+  height: 0.9rem;
   background: var(--accent);
 }
 
+/* Formação e área de interesse */
+
 .eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+
   margin-bottom: 1.25rem;
+
   color: var(--text-2);
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.08rem);
   font-weight: 500;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
 }
 
-/* Assinatura: duas palavras coladas, a segunda levemente recuada */
+.eyebrow-separator {
+  color: var(--accent);
+  font-size: 1.05em;
+  font-weight: 600;
+}
+
+/* Nome */
+
 h1 {
   margin-bottom: 1.75rem;
-  font-size: clamp(3.75rem, 1rem + 9vw, 7.5rem);
+  font-size: clamp(3.5rem, 1rem + 8vw, 6.5rem);
   font-weight: 700;
   font-stretch: 90%;
   line-height: 0.84;
@@ -412,27 +457,44 @@ h1 {
   margin-left: 0.34em;
 }
 
-p.intro {
-  max-width: 56ch;
-  margin-bottom: 2rem;
+/* Texto de apresentação */
+
+.intro {
+  width: 100%;
+  max-width: 68ch;
+  margin-bottom: 1.75rem;
+
   color: var(--text-2);
-  font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.15rem);
-  line-height: 1.7;
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 0.94rem + 0.15vw, 1.04rem);
+  line-height: 1.6;
   font-weight: 400;
 }
+
+.intro p {
+  margin: 0;
+}
+
+.intro p + p {
+  margin-top: 0.75rem;
+}
+
+/* Ações */
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
 }
+
+/* Disponibilidade */
 
 .status {
   display: grid;
   gap: 0.5rem;
   max-width: 52ch;
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--line);
 }
 
@@ -440,6 +502,7 @@ p.intro {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+
   color: var(--text);
   font-size: 0.95rem;
   font-weight: 500;
@@ -461,9 +524,14 @@ p.intro {
 }
 
 /* Fotografia */
+
 .portrait {
   width: 100%;
   min-width: 0;
+  justify-self: end;
+  align-self: start;
+  /* Evita que a foto ultrapasse a dobra em notebooks de pouca altura */
+  max-width: calc((100svh - 8rem) * 0.8);
 }
 
 .portrait-stage {
@@ -486,7 +554,6 @@ p.intro {
   object-fit: cover;
   object-position: center 22%;
 }
-
 
 /* ==========================================================================
    07. BOTÕES (.tb)
