@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Portfólio de Eduarda Souza Ribeiro — estudante de Engenharia de Software, com projetos práticos em desenvolvimento de sistemas e aberta à primeira oportunidade em tecnologia.">
-  <meta name="theme-color" content="#17191d">
+    content="Portfólio de Eduarda Souza — estudante de Engenharia de Software, com projetos práticos em desenvolvimento de sistemas e aberta à primeira oportunidade em tecnologia.">
+  <meta name="theme-color" content="#121417">
   <meta name="color-scheme" content="dark">
   <title>Eduarda Souza — Portfólio</title>
 
@@ -15,9 +15,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=16">
   <script src="script.js?v=3" defer></script>
 </head>
 
@@ -30,40 +30,18 @@
         <span class="brand-mark" aria-hidden="true">ES</span>
       </a>
 
-      <span class="folio" aria-hidden="true">Portfólio 2026</span>
-
       <nav class="nav" aria-label="Navegação principal">
-        <a href="#sobre">
-          <span class="nav-n" aria-hidden="true">02</span>Sobre
-        </a>
-        <a href="#projetos">
-          <span class="nav-n" aria-hidden="true">03</span>Projetos
-        </a>
-        <a href="#tecnologias">
-          <span class="nav-n" aria-hidden="true">04</span>Tecnologias
-        </a>
-        <a class="contact-link" href="#contato">
-          <span class="nav-n" aria-hidden="true">05</span>Contato ↗
-        </a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a class="contact-link" href="#contato">Contato</a>
       </nav>
     </div>
   </header>
 
-  <div class="bp" aria-hidden="true">
-    <div class="bp-rx"></div>
-    <div class="bp-ry"></div>
-    <div class="bp-hx"></div>
-    <div class="bp-vy"></div>
-    <div class="bp-o"></div>
-    <div class="bp-snap">
-      <i class="s-h"></i>
-      <i class="s-v"></i>
-    </div>
-  </div>
-
   <main id="conteudo">
 
-    <!-- 01. INÍCIO -->
+    <!-- INÍCIO -->
     <section class="hero shell" id="inicio">
       <div class="hero-content">
 
@@ -158,55 +136,51 @@
       </figure>
     </section>
 
-    <!-- 02. SOBRE -->
+    <!-- SOBRE -->
     <section class="about-section shell" id="sobre"
       aria-labelledby="sobre-titulo">
 
-      <div class="about-head reveal">
-        <p class="section-kicker">Minha trajetória</p>
-        <h2 id="sobre-titulo">Sobre<span class="accent">.</span></h2>
-        <p class="about-sub"><span>Construindo</span> enquanto aprendo.</p>
-      </div>
+      <div class="about-layout">
 
-      <div class="about-duo">
+        <div class="about-head reveal">
+          <p class="section-kicker">Minha trajetória</p>
+          <h2 id="sobre-titulo">Sobre<span class="accent">.</span></h2>
+          <p class="about-sub"><span>Construindo</span> enquanto aprendo.</p>
+        </div>
 
-        <article class="about-block reveal" style="--i:0">
-          <p class="about-label">Tecnologia</p>
-          <h3>Aprendizado que ganha forma</h3>
-          <p>
-            Comecei com HTML e CSS e fui aprendendo na prática, criando projetos
-            e voltando a eles conforme aprendia mais.
-          </p>
-        </article>
+        <div class="about-duo">
 
-        <article class="about-block reveal" style="--i:1">
-          <p class="about-label">Bagagem</p>
-          <h3>Experiências que me acompanham</h3>
-          <p>
-            Sete anos na área da saúde me trouxeram trabalho em equipe,
-            responsabilidade, atenção aos detalhes e empatia, que continuam
-            fazendo parte da minha forma de trabalhar.
-          </p>
-        </article>
+          <article class="about-block reveal" style="--i:0">
+            <p class="about-label">Tecnologia</p>
+            <h3>Aprendizado que ganha forma</h3>
+            <p>
+              Comecei com HTML e CSS e fui aprendendo na prática, criando projetos
+              e voltando a eles conforme aprendia mais.
+            </p>
+          </article>
+
+          <article class="about-block reveal" style="--i:1">
+            <p class="about-label">Bagagem</p>
+            <h3>Experiências que me acompanham</h3>
+            <p>
+              Sete anos na área da saúde me trouxeram trabalho em equipe,
+              responsabilidade, atenção aos detalhes e empatia, que continuam
+              fazendo parte da minha forma de trabalhar.
+            </p>
+          </article>
+
+        </div>
 
       </div>
 
       <div class="about-cta reveal">
         <p>Quer conhecer o que já desenvolvi?</p>
-
-        <a class="soft-btn" href="#projetos">
-          <span>Explore meus projetos</span>
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="none"
-            stroke="currentColor" stroke-width="1.75"
-            stroke-linecap="square" aria-hidden="true">
-            <path d="M8 2.5v11M3.5 9.5 8 14l4.5-4.5" />
-          </svg>
-        </a>
+        <a class="tb tb-p" href="#projetos"><span class="tb-t">Explore meus projetos</span></a>
       </div>
 
     </section>
 
-    <!-- 03. PROJETOS -->
+    <!-- PROJETOS -->
     <section class="projects-section shell" id="projetos"
       aria-labelledby="projetos-titulo">
 
@@ -219,11 +193,7 @@
 
       <div class="project-list">
 
-        <a class="project"
-          href="https://github.com/eduardasouzar-dev/catalogo-filmes"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Ver projeto Catálogo de Filmes no GitHub">
+        <article class="project" aria-labelledby="projeto-catalogo">
 
           <div class="project-image">
             <img
@@ -233,29 +203,32 @@
           </div>
 
           <div class="project-title">
-            <h3>Catálogo de Filmes</h3>
+            <h3 id="projeto-catalogo">Catálogo de Filmes</h3>
             <span class="project-stack">
               HTML · CSS · JavaScript · Node.js · Express · MySQL · TMDB
             </span>
           </div>
 
-          <p class="project-description">
-            Desenvolvi um catálogo colaborativo de filmes que permite cadastrar,
-            buscar e consultar títulos. Durante o cadastro, o usuário escolhe
-            o filme e preenche um formulário; a aplicação utiliza a API do TMDB
-            para buscar automaticamente informações e pôsteres, integrando
-            esses dados ao sistema. O gerenciamento dos filmes é feito com
-            Node.js, Express e MySQL.
-          </p>
+          <div class="project-body">
+            <p class="project-description">
+              Desenvolvi um catálogo colaborativo de filmes que permite cadastrar,
+              buscar e consultar títulos. Durante o cadastro, o usuário escolhe
+              o filme e preenche um formulário; a aplicação utiliza a API do TMDB
+              para buscar automaticamente informações e pôsteres, integrando
+              esses dados ao sistema. O gerenciamento dos filmes é feito com
+              Node.js, Express e MySQL.
+            </p>
 
-          <span class="project-arrow" aria-hidden="true">↗</span>
-        </a>
+            <div class="project-actions">
+              <a class="project-link"
+                href="https://github.com/eduardasouzar-dev/catalogo-filmes"
+                target="_blank" rel="noopener noreferrer">Código — GitHub<span class="sr-only"> do Catálogo de Filmes, abre em nova aba</span></a>
+            </div>
+          </div>
 
-        <a class="project"
-          href="https://github.com/eduardasouzar-dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Ver projetos de Eduarda Souza no GitHub">
+        </article>
+
+        <article class="project" aria-labelledby="projeto-jardim-pet">
 
           <div class="project-image">
             <img
@@ -265,126 +238,109 @@
           </div>
 
           <div class="project-title">
-            <h3>Jardim Pet</h3>
+            <h3 id="projeto-jardim-pet">Jardim Pet</h3>
             <span class="project-stack">
               React · Node.js · Express · MySQL
             </span>
           </div>
 
-          <p class="project-description">
-            Loja virtual com tema pet e plantas, com catálogo de produtos,
-            autenticação, carrinho e pedidos. É meu projeto mais completo:
-            interface em React, back-end em Node.js com Express e dados em MySQL.
-          </p>
+          <div class="project-body">
+            <p class="project-description">
+              Loja virtual com tema pet e plantas, com catálogo de produtos,
+              autenticação, carrinho e pedidos. É meu projeto mais completo:
+              interface em React, back-end em Node.js com Express e dados em MySQL.
+            </p>
 
-          <span class="project-arrow" aria-hidden="true">↗</span>
-        </a>
+            <div class="project-actions">
+              <a class="project-link"
+                href="https://eduardasouzar-dev.github.io/jardim-pet/"
+                target="_blank" rel="noopener noreferrer">GitHub Pages<span class="sr-only"> — demonstração do Jardim Pet, abre em nova aba</span></a>
+              <a class="project-link"
+                href="https://github.com/eduardasouzar-dev/jardim-pet-react"
+                target="_blank" rel="noopener noreferrer">Código — GitHub<span class="sr-only"> do Jardim Pet, abre em nova aba</span></a>
+            </div>
+          </div>
+
+        </article>
 
       </div>
     </section>
 
-    <!-- 04. TECNOLOGIAS -->
-    -->
-<section class="tech-section shell" id="tecnologias" aria-labelledby="tecnologias-titulo">
-  <div class="tech-head">
-    <div class="reveal">
-      <p class="section-kicker">Por trás dos projetos</p>
-      <h2 id="tecnologias-titulo">Tecnologias<span class="accent">.</span></h2>
-      <p class="tech-sub"><span>Da interface</span> ao banco de dados.</p>
-      <p class="tech-intro">Organizei as tecnologias pelo lugar onde cada uma atua em uma aplicação, do que aparece na
-        tela até o que fica guardado no banco.</p>
-    </div>
-    <p class="tech-legend reveal" style="--i:1" aria-hidden="true">
-      <span><i></i>em uso</span>
-      <span><i class="is-study"></i>em estudo</span>
-    </p>
-  </div>
+    <!-- TECNOLOGIAS -->
+    <section class="tech-section shell" id="tecnologias" aria-labelledby="tecnologias-titulo">
 
-  <div class="tech-map">
-
-    <article class="tech-panel tech-a reveal" style="--i:0" aria-labelledby="tech-a">
-      <header class="tech-panel-head">
-        <span class="tech-letter" aria-hidden="true">A</span>
-        <h3 id="tech-a">Interface</h3>
-        <span class="tech-tag">o que aparece na tela</span>
-      </header>
-      <ul class="tech-board" style="--cols:4">
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-html5-plain" aria-hidden="true"></i></span><span class="tech-name">HTML5</span></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-css3-plain" aria-hidden="true"></i></span><span class="tech-name">CSS3</span></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-javascript-plain" aria-hidden="true"></i></span><span class="tech-name">JavaScript</span></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-react-original" aria-hidden="true"></i></span><span class="tech-name">React</span></li>
-      </ul>
-    </article>
-
-    <div class="tech-link reveal" style="--i:1">
-      <span class="tech-rail" aria-hidden="true"></span>
-      <div class="tech-node">
-        <span class="tech-ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" aria-hidden="true">
-            <path d="M3 8h16m-4-4 4 4-4 4M21 16H5m4-4-4 4 4 4" />
-          </svg>
-        </span>
-        <span class="tech-name">APIs REST</span>
+      <div class="tech-head reveal">
+        <p class="section-kicker">Por trás dos projetos</p>
+        <h2 id="tecnologias-titulo">Tecnologias<span class="accent">.</span></h2>
+        <p class="tech-sub"><span>Da interface</span> ao banco de dados.</p>
+        <p class="tech-intro">
+          Organizei as tecnologias pelo lugar onde cada uma atua em uma aplicação,
+          do que aparece na tela até o que fica guardado no banco.
+        </p>
       </div>
-      <p class="tech-link-note">TMDB no Catálogo de Filmes</p>
-    </div>
 
-    <article class="tech-panel tech-b reveal" style="--i:2" aria-labelledby="tech-b">
-      <header class="tech-panel-head">
-        <span class="tech-letter" aria-hidden="true">B</span>
-        <h3 id="tech-b">Servidor e dados</h3>
-        <span class="tech-tag">nos bastidores</span>
-      </header>
-      <ul class="tech-board" style="--cols:3">
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-nodejs-plain" aria-hidden="true"></i></span><span class="tech-name">Node.js</span></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-express-original" aria-hidden="true"></i></span><span class="tech-name">Express</span></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-mysql-plain" aria-hidden="true"></i></span><span class="tech-name">MySQL</span></li>
-      </ul>
-    </article>
+      <div class="tech-map">
 
-    <article class="tech-panel tech-c reveal" style="--i:0" aria-labelledby="tech-c">
-      <header class="tech-panel-head">
-        <span class="tech-letter" aria-hidden="true">C</span>
-        <h3 id="tech-c">Fluxo de trabalho</h3>
-        <span class="tech-tag">do código ao repositório</span>
-      </header>
-      <ul class="tech-flow">
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-vscode-plain" aria-hidden="true"></i></span><span class="tech-name">VS Code</span></li>
-        <li class="tech-step" aria-hidden="true"><em>registro</em></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-git-plain" aria-hidden="true"></i></span><span class="tech-name">Git</span></li>
-        <li class="tech-step" aria-hidden="true"><em>publico</em></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-github-original" aria-hidden="true"></i></span><span class="tech-name">GitHub</span></li>
-      </ul>
-    </article>
+        <article class="tech-panel tech-front reveal" style="--i:0" aria-labelledby="tech-front">
+          <header class="tech-panel-head">
+            <h3 id="tech-front">Front-end</h3>
+            <span class="tech-tag">interface</span>
+          </header>
+          <ul class="tech-board" role="list">
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-html5-plain" aria-hidden="true"></i></span><span class="tech-name">HTML5</span></li>
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-css3-plain" aria-hidden="true"></i></span><span class="tech-name">CSS3</span></li>
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-javascript-plain" aria-hidden="true"></i></span><span class="tech-name">JavaScript</span></li>
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-react-original" aria-hidden="true"></i></span><span class="tech-name">React</span></li>
+          </ul>
+        </article>
 
-    <article class="tech-panel tech-d reveal" style="--i:1" aria-labelledby="tech-d">
-      <header class="tech-panel-head">
-        <span class="tech-letter" aria-hidden="true">D</span>
-        <h3 id="tech-d">Em estudo</h3>
-        <span class="tech-tag">ainda aprendendo</span>
-      </header>
-      <ul class="tech-board" style="--cols:3">
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-java-plain" aria-hidden="true"></i></span><span class="tech-name">Java</span></li>
-        <li class="tech-tile"><span class="tech-ico"><i class="devicon-php-plain" aria-hidden="true"></i></span><span class="tech-name">PHP</span></li>
-        <li class="tech-tile tech-tile--empty" aria-hidden="true">+</li>
-      </ul>
-    </article>
+        <div class="tech-link reveal" style="--i:1">
+          <span class="tech-rail" aria-hidden="true"></span>
+          <div class="tech-node">
+            <span class="tech-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" aria-hidden="true">
+                <path d="M3 8h16m-4-4 4 4-4 4M21 16H5m4-4-4 4 4 4" />
+              </svg>
+            </span>
+            <span class="tech-name">APIs REST</span>
+          </div>
+          <p class="tech-link-note">TMDB no Catálogo de Filmes</p>
+        </div>
 
-  </div>
+        <article class="tech-panel tech-back reveal" style="--i:2" aria-labelledby="tech-back">
+          <header class="tech-panel-head">
+            <h3 id="tech-back">Back-end</h3>
+            <span class="tech-tag">servidores e dados</span>
+          </header>
+          <ul class="tech-board" role="list">
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-nodejs-plain" aria-hidden="true"></i></span><span class="tech-name">Node.js</span></li>
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-express-original" aria-hidden="true"></i></span><span class="tech-name">Express</span></li>
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-mysql-plain" aria-hidden="true"></i></span><span class="tech-name">MySQL</span></li>
+          </ul>
+        </article>
 
-  <div class="about-cta reveal">
-    <p>Vamos conversar sobre oportunidades?</p>
-    <a class="soft-btn" href="#contato">
-      <span>Entrar em contato</span>
-      <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75"
-        stroke-linecap="square" aria-hidden="true">
-        <path d="M8 2.5v11M3.5 9.5 8 14l4.5-4.5" />
-      </svg>
-    </a>
-  </div>
-</section>
+        <article class="tech-panel tech-tools reveal" style="--i:0" aria-labelledby="tech-ferramentas">
+          <header class="tech-panel-head">
+            <h3 id="tech-ferramentas">Ferramentas</h3>
+            <span class="tech-tag">código e repositórios</span>
+          </header>
+          <ul class="tech-board" role="list">
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-vscode-plain" aria-hidden="true"></i></span><span class="tech-name">VS Code</span></li>
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-git-plain" aria-hidden="true"></i></span><span class="tech-name">Git</span></li>
+            <li class="tech-tile"><span class="tech-ico"><i class="devicon-github-original" aria-hidden="true"></i></span><span class="tech-name">GitHub</span></li>
+          </ul>
+        </article>
 
-    <!-- 05. CONTATO -->
+      </div>
+
+      <div class="about-cta reveal">
+        <p>Vamos conversar sobre oportunidades?</p>
+        <a class="tb tb-p" href="#contato"><span class="tb-t">Entrar em contato</span></a>
+      </div>
+
+    </section>
+
+    <!-- CONTATO -->
     <section class="contact-section shell" id="contato"
       aria-labelledby="contato-titulo">
 
@@ -421,7 +377,6 @@
 
   </main>
 
-  <!-- RODAPÉ -->
   <footer class="footer shell">
     <span>© 2026 Eduarda Souza</span>
     <span>Construído com HTML, CSS e JavaScript.</span>
