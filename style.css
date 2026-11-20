@@ -9,17 +9,17 @@
 /* 01. TOKENS */
 :root {
   /* superfícies */
-  --bg: #121417;
-  --bg-rgb: 18 20 23;
-  --surface: #191c20;   /* botões, esteira e painéis */
-  --surface-2: #202329; /* hover e destaques sobre a superfície */
+  --bg: #08090A;
+  --bg-rgb: 8 9 10;
+  --surface: #101214;   /* botões, esteira e painéis */
+  --surface-2: #181B1D; /* hover e destaques sobre a superfície */
   --paper: #ebe8de;
   --ink: #17191d;
 
-/* texto */
---text: #f0eee8;
---text-2: #d0cfc9;
---muted: #aaa9a3;
+  /* texto */
+  --text: #f0eee8;
+  --text-2: #d0cfc9;
+  --muted: #aaa9a3;
 
   /* destaque (chartreuse) */
   --accent: #b6d95f;
@@ -27,14 +27,14 @@
   --accent-ink: var(--bg);
 
   /* bordas */
-  --border: #33373d;
+  --border: #292E33;
   --line: rgba(240, 238, 232, 0.1);
   --line-strong: rgba(240, 238, 232, 0.24);
   --line-soft: rgba(240, 238, 232, 0.065);
 
   /* grade de fundo */
-  --grid-minor: rgba(240, 238, 232, 0.04);
-  --grid-major: rgba(240, 238, 232, 0.08);
+  --grid-minor: rgba(190, 195, 180, 0.065);
+  --grid-major: rgba(190, 195, 180, 0.13);
 
   /* tipografia */
   --font-display: "Bricolage Grotesque", system-ui, sans-serif;
@@ -59,6 +59,7 @@
   --t-fast: 0.2s;
   --t-med: 0.4s;
 }
+
 
 /* 02. BASE */
 *,
@@ -178,16 +179,14 @@ main {
   border: 0;
 }
 
-/* 03. FUNDO — grade em dois níveis, muito discreta */
+
+/* 03. FUNDO — grade em dois níveis, sem acúmulo nos cruzamentos */
 body {
-  background-image:
-    linear-gradient(var(--grid-major) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
-    linear-gradient(var(--grid-minor) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
-  background-size: 256px 256px, 256px 256px, 64px 64px, 64px 64px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cg fill='none' stroke='rgba(190,195,180,0.065)' stroke-width='1'%3E%3Cpath d='M64 0V256 M128 0V256 M192 0V256 M0 64H256 M0 128H256 M0 192H256'/%3E%3C/g%3E%3Cg fill='none' stroke='rgba(190,195,180,0.13)' stroke-width='1'%3E%3Cpath d='M0 0V256 M0 0H256'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
   background-position: center top;
 }
+
 
 /* 04. SHELL */
 .shell {
@@ -702,14 +701,14 @@ h2 {
 .about-sub,
 .tech-sub {
   max-width: 22ch;
-  margin-top: clamp(0.9rem, 1.6vw, 1.25rem);
+  margin-top: clamp(0.075rem, 1.4vw, 1rem);
   color: var(--accent);
   font-family: var(--font-display);
   font-stretch: var(--sec-stretch);
-  font-size: clamp(1.5rem, 1.15rem + 1.4vw, 2.25rem);
-  font-weight: 300;
+  font-size: clamp(1.4rem, 1.1rem + 1.1vw, 2rem);
+  font-weight: 400;
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .about-sub span,
@@ -790,10 +789,11 @@ h2 {
   letter-spacing: 0.02em;
 }
 
+
 /* 10. PROJETOS — linhas sobre o fundo, capa | título + tecnologias | descrição + links */
 .project-list {
   --cover-w: clamp(13rem, 22vw, 18rem);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(182, 217, 95, 0.22);
 }
 
 .project {
@@ -804,18 +804,25 @@ h2 {
   gap: 0 clamp(1.5rem, 3.5vw, 3rem);
   align-items: start;
   padding-block: clamp(1.75rem, 3.5vw, 3rem);
-  border-top: 1px solid var(--line-strong);
+  border-top: 0;
 }
-
-/* mesma marca curta dos blocos de Sobre */
 .project::before {
   content: "";
   position: absolute;
-  top: -1px;
+  top: 0;
   left: 0;
-  width: 2.5rem;
+  width: 100%;
   height: 1px;
-  background: var(--accent);
+  background: linear-gradient(
+    90deg,
+    rgba(182, 217, 95, 0.12),
+    rgba(182, 217, 95, 0.8) 20%,
+    rgba(182, 217, 95, 0.55) 75%,
+    rgba(182, 217, 95, 0.12)
+  );
+  box-shadow:
+    0 0 6px rgba(182, 217, 95, 0.22),
+    0 0 14px rgba(182, 217, 95, 0.10);
 }
 
 .project-image {
@@ -919,6 +926,7 @@ h2 {
   transform: scaleX(1);
 }
 
+
 /* 11. TECNOLOGIAS — front-end · APIs REST · back-end, e ferramentas abaixo */
 .tech-section {
   --map-gap: clamp(1rem, 2.2vw, 1.75rem);
@@ -964,8 +972,8 @@ h2 {
   flex-direction: column;
   min-width: 0;
   padding: clamp(1.1rem, 2vw, 1.6rem);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: #0B0D0F;
+  border: 1px solid #24282B;
   transition: border-color var(--t-med) var(--ease);
 }
 
@@ -1134,57 +1142,6 @@ h2 {
   line-height: 1.5;
 }
 
-/* 12. CONTATO — composição aprovada, preservada */
-.contact-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  gap: var(--col-gap);
-  align-items: center;
-  padding: clamp(1.75rem, 5vw, 4.5rem);
-  background: var(--paper);
-  color: var(--ink);
-  border-radius: var(--radius);
-}
-
-.contact-copy {
-  max-width: 34em;
-  font-family: var(--font-display);
-  font-stretch: var(--sec-stretch);
-  font-size: clamp(1.3rem, 1rem + 1.1vw, 1.85rem);
-  font-weight: var(--sec-weight);
-  line-height: 1.4;
-  letter-spacing: var(--sec-track);
-}
-
-.contact-links {
-  display: grid;
-  min-width: 0;
-  border-top: 1px solid rgba(23, 25, 29, 0.25);
-}
-
-.contact-links a {
-  display: block;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(23, 25, 29, 0.25);
-  font-family: var(--font-display);
-  font-stretch: var(--sec-stretch);
-  font-size: clamp(1.3rem, 1.05rem + 0.9vw, 1.75rem);
-  font-weight: 450;
-  letter-spacing: var(--sec-track);
-  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease),
-    padding var(--t-med) var(--ease);
-}
-
-.contact-links a:hover,
-.contact-links a:focus-visible {
-  padding-inline: 1rem;
-  background: var(--ink);
-  color: var(--accent);
-}
-
-.contact-panel :focus-visible {
-  outline-color: var(--ink);
-}
 
 /* 13. RODAPÉ */
 .footer {
@@ -1339,8 +1296,7 @@ h2 {
     display: none;
   }
 
-  .about-layout,
-  .contact-panel {
+  .about-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
   }
@@ -1489,10 +1445,6 @@ h2 {
     display: none;
   }
 
-  .contact-panel {
-    padding: 1.5rem 1.25rem;
-  }
-
   .footer {
     flex-direction: column;
     align-items: flex-start;
@@ -1626,43 +1578,65 @@ h1 {
 .intro {
   max-width: 39rem;
   margin: 0 0 clamp(1.25rem, 2.5svh, 1.65rem);
-  color: var(--text-2);
-  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.075rem);
-  line-height: 1.7;
-  letter-spacing: 0.005em;
-  font-weight: 400;
+  color: #f0eee8;
+  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.125rem);
+  line-height: 1.75;
+  letter-spacing: 0;
+  font-weight: 500;
   text-align: left;
+  opacity: 1;
 }
 
-/* AÇÕES */
+/* 03. AÇÕES */
+
 .actions {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 1.25rem;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: clamp(1.5rem, 3vh, 2rem);
 }
 
-.actions .tb-p {
-  border-color: rgb(var(--accent-rgb) / 0.35);
-  background: var(--surface);
-}
-
-.actions .tb-s {
+.actions .tb {
   min-height: 2.9rem;
-  padding-inline: 0.2rem;
-  border-color: transparent;
-  background: transparent;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #292E33;
+  border-radius: 3px;
+  background: #0B0D0F;
+  color: var(--text-2);
 }
 
-.actions .tb-s::before,
-.actions .tb-s::after {
-  display: none;
+/* Ação principal */
+.actions .tb-p {
+  border-color: rgb(var(--accent-rgb) / 0.42);
+  color: var(--accent);
+}
+
+/* Ação secundária */
+.actions .tb-s {
+  border-color: #292E33;
+  color: var(--text-2);
+}
+
+/* Interação compartilhada */
+.actions .tb:hover,
+.actions .tb:focus-visible {
+  border-color: rgb(var(--accent-rgb) / 0.55);
+  background: #101214;
+  letter-spacing: 0.045em;
+}
+
+.actions .tb-p:hover,
+.actions .tb-p:focus-visible {
+  color: var(--accent);
 }
 
 .actions .tb-s:hover,
 .actions .tb-s:focus-visible {
-  border-color: transparent;
-  background: transparent;
-  color: var(--accent);
+  color: var(--text);
 }
+
 
 /* DISPONIBILIDADE */
 .status {
@@ -1890,15 +1864,14 @@ h1 {
 }
 
 /* Apresentação */
-
 .intro {
   max-width: 39rem;
   margin: 0 0 clamp(1.5rem, 3vh, 2rem);
-  color: var(--text-2);
-  font-size: clamp(0.98rem, 0.92rem + 0.25vw, 1.08rem);
+  color: var(--text);
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.1rem);
   font-weight: 300;
   line-height: 1.75;
-  letter-spacing: 0.005em;
+  letter-spacing: 0;
   text-align: left;
   text-wrap: pretty;
 }
@@ -1911,7 +1884,7 @@ h1 {
   justify-self: end;
   align-self: center;
   width: 100%;
-  max-width: 23rem;
+  max-width: 20rem;
   margin: 0;
 }
 
@@ -2138,4 +2111,372 @@ h1 {
   .portrait {
     transform: translateX(-8rem);
   }
+}
+/* ==========================================================================
+   19. CONTATO — painel iluminado por um único ponto de luz
+   Bloco consolidado: substitui as antigas seções 12 e 19.
+   Deve ficar no FIM do arquivo (a cascata depende da ordem).
+   ========================================================================== */
+
+/* Seção */
+
+.contact-section {
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+}
+
+/* Cabeçalho */
+
+.contact-section .section-head {
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.contact-section .section-kicker {
+  margin-bottom: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.contact-section .section-head h2 {
+  color: var(--text);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+}
+
+.contact-section h2 .accent {
+  display: inline-block;
+  margin-left: 0.12em;
+}
+
+
+.contact-panel {
+  --ring-a: 0.95;
+  --ring-x: 105%;
+  --ring-y: 145%;
+
+  --halo-a: 0.16;
+  --halo-x: 100%;
+  --halo-y: 125%;
+
+  --core-a: 0.20;
+  --core-r: 12rem;
+
+  --glow-a: 0.10;
+
+  /* Superfície em tons de preto */
+  --panel-hi: #11130E;
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border-radius: 5px;
+  color: var(--text);
+
+  background: linear-gradient(
+    145deg,
+    var(--panel-hi) 0%,
+    #0B0D0B 42%,
+    #070809 100%
+  );
+
+  box-shadow:
+    -0.5rem -0.5rem 2.5rem -1.5rem
+      rgb(var(--accent-rgb) / var(--glow-a)),
+    0.75rem 1.5rem 3rem -1.25rem
+      rgb(0 0 0 / 0.65);
+}
+
+/* Contorno */
+.contact-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse var(--ring-x) var(--ring-y) at 0 0,
+      rgb(var(--accent-rgb) / var(--ring-a)) 0%,
+      rgb(var(--accent-rgb) / 0.48) 22%,
+      rgb(var(--accent-rgb) / 0.18) 48%,
+      transparent 78%
+    ),
+    linear-gradient(
+      135deg,
+      var(--line-strong),
+      var(--line) 55%
+    );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* Luz interna */
+.contact-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle var(--core-r) at 0 0,
+      rgb(var(--accent-rgb) / var(--core-a)) 0%,
+      rgb(var(--accent-rgb) / 0.09) 42%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse var(--halo-x) var(--halo-y) at 0 0,
+      rgb(var(--accent-rgb) / var(--halo-a)) 0%,
+      rgb(var(--accent-rgb) / 0.07) 38%,
+      transparent 76%
+    );
+}
+
+/* Apresentação */
+
+.contact-intro {
+  min-width: 0;
+}
+
+.contact-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 0.6rem + 0.18vw, 0.76rem);
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  line-height: 1.6;
+}
+
+.contact-status .cursor {
+  display: inline-block;
+  flex: 0 0 0.38rem;
+  width: 0.38rem;
+  height: 0.85rem;
+}
+
+.contact-copy {
+  max-width: 38rem;
+  color: var(--text-2);
+  font-family: var(--font-display);
+  font-stretch: var(--sec-stretch);
+  font-size: clamp(1.05rem, 0.95rem + 0.55vw, 1.3rem);
+  font-weight: var(--sec-weight);
+  line-height: 1.65;
+  letter-spacing: var(--sec-track);
+  text-wrap: pretty;
+}
+
+.contact-copy::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 1px;
+  margin-bottom: 1.35rem;
+  background: var(--accent);
+}
+
+/* Canais de contato */
+
+.contact-links {
+  display: grid;
+  min-width: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.contact-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+  padding: 1rem 0.25rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-2);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+  font-weight: 450;
+  letter-spacing: var(--sec-track);
+  transition:
+    color var(--t-med) var(--ease),
+    padding var(--t-med) var(--ease);
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  padding-left: 0.7rem;
+  color: var(--accent);
+}
+
+/* Ícones: herdam a cor do link (cinza em repouso, chartreuse no hover) */
+
+.contact-icon {
+  display: block;
+  flex: 0 0 1.4rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.contact-icon-email {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet — coluna única: mantém a origem da luz, reduz contorno e halo
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .contact-panel {
+    --ring-a: 0.6;
+    --ring-x: 62%;
+    --ring-y: 70%;
+
+    --halo-a: 0.06;
+    --halo-x: 62%;
+    --halo-y: 42%; /* o halo termina antes de chegar à lista de links */
+
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .contact-copy {
+    max-width: 42rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Celular — filete no topo, curta extensão na lateral, halo quase nulo
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 560px) {
+  .contact-section {
+    padding-block: 4rem;
+  }
+
+  .contact-section .section-head {
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-section .section-head h2 {
+    max-width: 12ch;
+    font-size: clamp(2.1rem, 9vw, 2.65rem);
+  }
+
+  .contact-panel {
+    --ring-a: 0.55;
+    --ring-x: 60%;
+    --ring-y: 16%;
+
+    --halo-a: 0.035;
+    --halo-x: 60%;
+    --halo-y: 20%;
+
+    gap: 2rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: 4px;
+    box-shadow: none;
+  }
+
+  .contact-status {
+    align-items: flex-start;
+    font-size: 0.65rem;
+  }
+
+  .contact-copy {
+    font-size: 1.1rem;
+  }
+
+  .contact-links a {
+    min-height: 4rem;
+  }
+}
+/* PADRONIZAÇÃO — títulos das seções */
+
+#sobre-titulo,
+#projetos-titulo,
+#tecnologias-titulo {
+  font-size: clamp(1.85rem, 1.4rem + 2.2vw, 3.1rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+
+/* ==========================================================================
+   20. LINHAS DIVISÓRIAS — navegação, Bagagem e Tecnologias
+   ========================================================================== */
+
+/* Padrão visual: linha chartreuse com centro luminoso e extremidades suaves */
+
+.topbar-inner::after,
+.about-section::before,
+.tech-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(182, 217, 95, 0.12),
+    rgba(182, 217, 95, 0.8) 20%,
+    rgba(182, 217, 95, 0.55) 75%,
+    rgba(182, 217, 95, 0.12)
+  );
+  box-shadow:
+    0 0 6px rgba(182, 217, 95, 0.22),
+    0 0 14px rgba(182, 217, 95, 0.10);
+}
+
+/* Divisão entre navegação e Hero */
+
+.topbar-inner {
+  position: relative;
+}
+
+.topbar-inner::after {
+  bottom: 0;
+}
+
+/* Bagagem e Tecnologias */
+
+.about-section,
+.tech-section {
+  position: relative;
+  border-top: 0;
+}
+
+.about-section::before,
+.tech-section::before {
+  top: 0;
 }
