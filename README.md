@@ -9,6 +9,8 @@ Portfólio pessoal desenvolvido com dois objetivos:
 
 O portfólio reúne minha apresentação pessoal, trajetória profissional, métodos de aprendizado, projetos práticos e tecnologias que fazem parte dos meus estudos.
 
+![Prévia do portfólio de Eduarda Souza](images/hero.png)
+
 A identidade visual foi pensada para transmitir um pouco da minha personalidade e das minhas preferências estéticas, com uma proposta voltada ao universo da tecnologia e do desenvolvimento de software. A combinação de tons escuros com detalhes em chartreuse, a tipografia e os elementos visuais foram escolhas feitas para construir uma apresentação com a qual me identifico.
 
 Entre os recursos implementados estão:
